@@ -49,5 +49,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.next_page:
+                Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.change_text:
+                final EditText Surname = findViewById(R.id.surname);
+                final EditText Name = findViewById(R.id.name);
+                final EditText Email = findViewById(R.id.email);
+                final EditText Password = findViewById(R.id.password);
+                Surname.setText("Kyrylyuk");
+                Name.setText("Olya");
+                Email.setText("olya@gmail.com");
+                Password.setText("1111");
+                break;
+            case R.id.change_orientation:
+                System.out.println("orientation: "+ getResources().getConfiguration().orientation);
+                if (getResources().getConfiguration().orientation ==
+                        Configuration.ORIENTATION_PORTRAIT)
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                else if (getResources().getConfiguration().orientation ==
+                        Configuration.ORIENTATION_LANDSCAPE)
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+        return true;
+    }
 
 }
