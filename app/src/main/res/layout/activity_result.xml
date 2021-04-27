@@ -47,6 +47,12 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="22sp" />
+        <ImageView
+            android:id="@+id/popup"
+            android:layout_width="136dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/picture" />
     </LinearLayout>
 
 
